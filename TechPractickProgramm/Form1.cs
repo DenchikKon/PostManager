@@ -516,8 +516,10 @@ namespace TechPractickProgramm
 		{
             try
             {
+                
 				var wordApp = new Word.Application();
-				var doc = wordApp.Documents.Open(@"D:\studyColledge\TexPractick\TechPractickProgramm\TechPractickProgramm\bin\Debug\примерОтправления.docx");
+                string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "примерОтправления.docx");
+				var doc = wordApp.Documents.Open(path);
 				if (sendingDataGrid.SelectedRows[0] == null)
 					MessageBox.Show("Требуется выбрать отправление");
 				int idSending = Convert.ToInt32(sendingDataGrid.SelectedRows[0].Cells[0].Value);
